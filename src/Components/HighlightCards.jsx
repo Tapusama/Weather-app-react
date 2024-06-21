@@ -1,26 +1,12 @@
 import React, { memo } from "react";
 
 const Highlights = memo((props) => {
-  const { styles, title, footer, image, icon, value, unit, jsx } = props;
+  const { styles, title, footer, image, icon, value, unit, jsx, className } =
+    props;
   return (
-    <div
-      style={
-        styles
-          ? styles
-          : {
-              height: "100px",
-              width: "80px",
-              justifyContent: "center",
-              borderRadius: "15px",
-              borderColor: "#eaeaea",
-              background: "#fff",
-              padding: "10px",
-              fontSize: "10px",
-              fontWeight: "bold",
-            }
-      }
-    >
+    <div className={className ? className : "highlightCard"}>
       <span
+        className="titleClass"
         style={{
           color: "#eaeaea",
           alignSelf: "flex-start",

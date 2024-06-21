@@ -57,17 +57,7 @@ function App() {
     },
   ];
 
-  const styleProps = {
-    display: "flex",
-    flexDirection: "column",
-    height: "140px",
-    width: "180px",
-    borderRadius: "15px",
-    borderColor: "#eaeaea",
-    background: "white",
-    padding: "20px",
-    marginBottom: "20px",
-  };
+ 
   return (
     <div className="App">
       <div className="mainPage">
@@ -119,12 +109,12 @@ function App() {
             <div className="higlightsWrapperDiv">
               <Highlights
                 title="UV Index"
-                styles={styleProps}
+                className={"highlightCard"}
                 jsx={<Graph />}
               />
               <Highlights
                 title="Wind Status"
-                styles={styleProps}
+                className={"highlightCard"}
                 value={"7.7" + "\u00B0"}
                 unit={"Km/h"}
                 footer={"Normal"}
@@ -132,7 +122,7 @@ function App() {
               />
               <Highlights
                 title="Sunrise & Sunset"
-                styles={styleProps}
+                className={"highlightCard"}
                 jsx={
                   <div style={{ flexDirection: "column", marginTop: "20px" }}>
                     <div style={{ flexDirection: "row" }}>
@@ -151,7 +141,7 @@ function App() {
               />
               <Highlights
                 title="Humidity"
-                styles={styleProps}
+                className={"highlightCard"}
                 value={"30"}
                 unit={"%"}
                 footer={"Normal"}
@@ -159,7 +149,7 @@ function App() {
               />
               <Highlights
                 title="Visibility"
-                styles={styleProps}
+                className={"highlightCard"}
                 value={"67"}
                 unit={"Km"}
                 footer={"Normal"}
@@ -167,7 +157,7 @@ function App() {
               />
               <Highlights
                 title="Air Quality"
-                styles={styleProps}
+                className={"highlightCard"}
                 value={"27.7"}
                 footer={"Normal"}
                 icon={<RiEmotionNormalFill size={20} color="yellow" />}

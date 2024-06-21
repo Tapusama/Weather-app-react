@@ -4,6 +4,7 @@ const SmallCards = memo((props, { children }) => {
   const { styles, data } = props;
   return (
     <div
+    className="Wrapper"
       style={
         styles
           ? styles
