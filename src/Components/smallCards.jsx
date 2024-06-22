@@ -1,26 +1,9 @@
 import React, { memo } from "react";
 
 const SmallCards = memo((props, { children }) => {
-  const { styles, data } = props;
+  const { classNames, data } = props;
   return (
-    <div
-    className="Wrapper"
-      style={
-        styles
-          ? styles
-          : {
-              height: "100px",
-              width: "80px",
-              justifyContent: "center",
-              borderRadius: "15px",
-              borderColor: "#eaeaea",
-              background: "#fff",
-              padding: "10px",
-              fontSize: "10px",
-              fontWeight: "bold",
-            }
-      }
-    >
+    <div className={classNames ? classNames : "Wrapper"}>
       {data ? (
         <div
           style={{

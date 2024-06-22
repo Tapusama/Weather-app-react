@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 const Highlights = memo((props) => {
-  const { styles, title, footer, image, icon, value, unit, jsx, className } =
+  const { styles, title, footer, image, icon, value, unit, jsx, className,windDirection,windDirectionUnit } =
     props;
   return (
     <div className={className ? className : "highlightCard"}>

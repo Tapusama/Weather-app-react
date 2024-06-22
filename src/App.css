@@ -211,3 +211,31 @@ html {
   padding: 20px;
   margin-bottom: 20px;
 }
+.location {
+  position: relative;
+  bottom: 12%;
+  color: rgb(250, 247, 247);
+  font-weight: bold;
+}
+
+.Wrapper {
+  height: 100px;
+  width: 80px;
+  justify-content: center;
+  border-radius: 15px;
+  border-color: #eaeaea;
+  background: #fff;
+  padding: 10px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.Wrapper:hover {
+  -webkit-box-shadow: 0px 3px 22px -4px rgba(156, 145, 156, 1);
+  -moz-box-shadow: 0px 3px 22px -4px rgba(156, 145, 156, 1);
+  box-shadow: 0px 3px 22px -4px rgba(156, 145, 156, 1);
+  cursor: pointer;
+  height: 110px;
+  width: 100px;
+  font-size: 12px;
+}
