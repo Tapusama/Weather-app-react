@@ -18,7 +18,7 @@ const SmallCards = memo((props, { children }) => {
             src={data?.image.length >= 0 ? data?.FoundIcon : data?.image}
           />
           <span>
-            {data?.temp}- <span style={{ color: "#eaeaea" }}>{data?.low}</span>
+            {data?.temp}- <span style={{ color: "blue" }}>{data?.low}</span>
           </span>
         </div>
       ) : children ? (
