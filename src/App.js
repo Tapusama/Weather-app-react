@@ -13,6 +13,7 @@ import { HiOutlineArrowCircleUp } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import {
   fetchAirPollutionDetails,
+  fetchLocationByName,
   fetchUvDetails,
   fetchWeatherData,
   fetchWeatherDetails,
@@ -134,15 +135,15 @@ function App() {
     return copy;
   };
 
-  const getLocationOnPageLoad = async () => {
+  const getLocationOnPageLoad = async (lattitude, longitude) => {
     if ("geolocation" in navigator) {
       // Prompt user for permission to access their location
       navigator.geolocation.getCurrentPosition(
         // Success callback function
         async (position) => {
           // Get the user's latitude and longitude coordinates
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
+          const lat = lattitude ? lattitude : position.coords.latitude;
+          const lng = longitude ? longitude : position.coords.longitude;
 
           // Do something with the location data, e.g. display on a map
           // console.log(`Latitude: ${lat}, longitude: ${lng}`);
@@ -268,6 +269,14 @@ function App() {
     return WIND_DIRECTION;
   };
 
+  const onSearchName = async (e) => {
+    let data = await fetchLocationByName(e.target.value);
+    console.log(data);
+    if (data && data.length > 0) {
+      getLocationOnPageLoad(data[0]?.lat,data[0]?.lon)
+    }
+  };
+
   useEffect(() => {
     getLocationOnPageLoad();
   }, []);
@@ -277,7 +286,7 @@ function App() {
       <div className="mainPage">
         <div className="mainSubpage">
           <div className="inner1stDiv">
-            <SearchBar />
+            <SearchBar onChange={onSearchName} />
             {weatherDetails?.weather && weatherDetails?.weather.length > 0 ? (
               <img
                 className="imageWrapper"
