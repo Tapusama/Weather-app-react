@@ -14,11 +14,8 @@ import { useEffect, useState } from "react";
 import {
   fetchAirPollutionDetails,
   fetchLocationByName,
-  fetchUvDetails,
   fetchWeatherData,
   fetchWeatherDetails,
-  fetchWeatherDetailsByDate,
-  getCurrentLocation,
 } from "./Services/WeatherApi";
 import { findDayForCards } from "./Utils/Functions";
 
