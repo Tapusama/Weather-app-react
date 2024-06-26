@@ -10,6 +10,11 @@ import { RiEmotionNormalFill } from "react-icons/ri";
 import Graph from "./Components/Graph";
 import { HiOutlineArrowCircleDown } from "react-icons/hi";
 import { HiOutlineArrowCircleUp } from "react-icons/hi";
+import { ImNeutral } from "react-icons/im";
+import { ImHappy2 } from "react-icons/im";
+import { ImCool } from "react-icons/im";
+import { ImSad2 } from "react-icons/im";
+import { ImFrustrated } from "react-icons/im";
 import { useEffect, useState } from "react";
 import {
   fetchAirPollutionDetails,
@@ -270,7 +275,7 @@ function App() {
     let data = await fetchLocationByName(e.target.value);
     console.log(data);
     if (data && data.length > 0) {
-      getLocationOnPageLoad(data[0]?.lat,data[0]?.lon)
+      getLocationOnPageLoad(data[0]?.lat, data[0]?.lon);
     }
   };
 
@@ -410,8 +415,36 @@ function App() {
                     : 0
                 }
                 // unit={"Km/h"}
-                footer={"Normal"}
-                icon={<RiEmotionNormalFill size={20} color="yellow" />}
+                footer={
+                  Object.keys(airPollution).length > 0
+                    ? airPollution?.list[0]?.main?.aqi == 1
+                      ? "GOOD"
+                      : airPollution?.list[0]?.main?.aqi == 2
+                      ? "Fair"
+                      : airPollution?.list[0]?.main?.aqi == 3
+                      ? "MODERATE"
+                      : airPollution?.list[0]?.main?.aqi == 4
+                      ? "POOR"
+                      : "VERY POOR"
+                    : "N/A"
+                }
+                icon={
+                  Object.keys(airPollution).length > 0 ? (
+                    airPollution?.list[0]?.main?.aqi == 1 ? (
+                      <ImHappy2 size={20} color="Green" />
+                    ) : airPollution?.list[0]?.main?.aqi == 2 ? (
+                      <ImCool size={20} color="lightGreen" />
+                    ) : airPollution?.list[0]?.main?.aqi == 3 ? (
+                      <ImNeutral size={20} color="yellow" />
+                    ) : airPollution?.list[0]?.main?.aqi == 4 ? (
+                      <ImSad2 size={20} color="Orange" />
+                    ) : (
+                      <ImFrustrated size={20} color="Red" />
+                    )
+                  ) : (
+                    "N/A"
+                  )
+                }
               />
             </div>
           </div>
