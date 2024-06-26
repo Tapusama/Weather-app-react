@@ -29,7 +29,7 @@ const Highlights = memo((props) => {
             className="highlightValueDiv"
             style={{ paddingBottom: "10px", paddingTop: "20px" }}
           >
-            <span>{value}</span>
+            <span>{value} &nbsp;</span>
             <span>{unit}</span>
           </div>
         ) : jsx ? (
