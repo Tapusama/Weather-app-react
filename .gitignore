@@ -10,6 +10,7 @@
 
 # production
 /build
+/src/Utils/KeyUrls.js
 
 # misc
 .DS_Store

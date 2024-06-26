@@ -1,25 +1,9 @@
 import React, { memo } from "react";
 
 const SmallCards = memo((props, { children }) => {
-  const { styles, data } = props;
+  const { classNames, data } = props;
   return (
-    <div
-      style={
-        styles
-          ? styles
-          : {
-              height: "100px",
-              width: "80px",
-              justifyContent: "center",
-              borderRadius: "15px",
-              borderColor: "#eaeaea",
-              background: "#fff",
-              padding: "10px",
-              fontSize: "10px",
-              fontWeight: "bold",
-            }
-      }
-    >
+    <div className={classNames ? classNames : "Wrapper"}>
       {data ? (
         <div
           style={{
@@ -29,7 +13,10 @@ const SmallCards = memo((props, { children }) => {
           }}
         >
           <span>{data?.day}</span>
-          <img style={{ height: "50px", width: "50px" }} src={data?.image} />
+          <img
+            style={{ height: "50px", width: "50px" }}
+            src={data?.image.length >= 0 ? data?.FoundIcon : data?.image}
+          />
           <span>
             {data?.temp}- <span style={{ color: "#eaeaea" }}>{data?.low}</span>
           </span>

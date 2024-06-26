@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { FaBeer } from "react-icons/fa";
 
 const Temperature = (props) => {
-  const { temp, id, location, tempUnit } = props;
+  const { temp, id, tempUnit } = props;
 
   const currentDate = new Date().toLocaleDateString();
 
@@ -20,7 +20,7 @@ const Temperature = (props) => {
         <span className="temp">{temp ?? 12}</span> &nbsp;{" "}
         <span className="temp">
           {tempUnit ?? "\u00B0"}
-          <span className="tempUnit">C</span>
+          {/* <span className="tempUnit">C</span> */}
         </span>
       </div>
     </React.Fragment>
