@@ -25,6 +25,12 @@ export const fetchAirPollutionDetails = async (lat, lon) => {
   return response.data;
 };
 
+export const fetchLocationByName= async (name) => {
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_Key}`;
+  const response = await axios.get(url);
+  return response.data;
+};
+
 
 
 
